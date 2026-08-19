@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VoltPay — modern fintech and digital wallet landing page template.">
+  <title>VoltPay — Digital Wallet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="site-header" id="site-header">
+  <a class="logo" href="#"><span class="logo-mark">V</span>volt<span>pay</span></a>
+  <nav class="nav" id="nav" aria-label="Primary navigation">
+    <a href="#features">Features</a>
+    <a href="#calculator">Exchange</a>
+    <a href="#pricing">Plans</a>
+    <a href="#security">Security</a>
+    <a class="nav-cta" href="#signup">Get started <b>↗</b></a>
+  </nav>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><i></i> The smarter way to move money</div>
+    <h1>Your money.<br><em>Without limits.</em></h1>
+    <p>One powerful wallet for spending, saving, sending and managing your money globally. Built for people who move fast.</p>
+    <form class="signup" id="signup">
+      <input type="email" placeholder="Enter your email address" aria-label="Email address" required>
+      <button type="submit">Get early access <span>→</span></button>
+    </form>
+    <div class="download">
+      <small>Available soon on</small>
+      <div>
+        <button type="button"> <b>App Store</b></button>
+        <button type="button">▶ <b>Google Play</b></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual" aria-label="Digital card preview">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="wallet-card">
+      <div class="card-top"><span>VOLT<span>PAY</span></span><i>◉</i></div>
+      <div class="chip"></div>
+      <div class="contactless">)))</div>
+      <div class="card-number">4821&nbsp;&nbsp;7392&nbsp;&nbsp;1048&nbsp;&nbsp;6284</div>
+      <div class="card-bottom">
+        <span><small>CARD HOLDER</small>Alex Morgan</span>
+        <span><small>EXPIRES</small>09/29</span>
+        <strong>VISA</strong>
+      </div>
+    </div>
+    <div class="balance-float">
+      <small>Total balance</small>
+      <b>$24,892.40</b>
+      <span>↗ +8.42% this month</span>
+    </div>
+    <div class="secure-float"><i>✓</i><span><b>Protected</b><small>Bank-grade security</small></span></div>
+  </div>
+</section>
+
+<section class="trust" id="security">
+  <div class="trust-copy">
+    <span>TRUSTED BY DESIGN</span>
+    <b>Built with security<br>at the core.</b>
+  </div>
+  <div class="trust-items">
+    <div><strong>256-bit</strong><small>End-to-end encryption</small></div>
+    <div><strong>99.99%</strong><small>Platform uptime</small></div>
+    <div><strong>$1B+</strong><small>Processed securely</small></div>
+    <div><strong>24/7</strong><small>Fraud monitoring</small></div>
+  </div>
+</section>
+
+<section class="section calculator" id="calculator">
+  <div class="section-label">LIVE CALCULATOR <span></span></div>
+  <div class="calc-head">
+    <div>
+      <h2>Know exactly<br><em>what you'll get.</em></h2>
+      <p>See today's simulated exchange rate and estimated transfer fee before you send.</p>
+    </div>
+    <div class="rate-pill"><i></i> Rates updated just now</div>
+  </div>
+  <div class="calc-box">
+    <div class="calc-field">
+      <label for="amount">You send</label>
+      <div><input id="amount" type="number" value="1000" min="0"><select id="from" aria-label="Send currency"><option>USD</option><option>EUR</option><option>GBP</option><option>NGN</option></select></div>
+    </div>
+    <button class="swap" id="swap" type="button" aria-label="Swap currencies">↕</button>
+    <div class="calc-field">
+      <label for="result">They receive</label>
+      <div><input id="result" readonly><select id="to" aria-label="Receive currency"><option>EUR</option><option>USD</option><option>GBP</option><option>NGN</option></select></div>
+    </div>
+    <div class="calc-summary">
+      <span>Exchange rate <b id="rate">—</b></span>
+      <span>Transfer fee <b id="fee">—</b></span>
+      <span class="receive">Recipient gets <strong id="receive">—</strong></span>
+    </div>
+  </div>
+</section>
+
+<section class="section features" id="features">
+  <div class="section-label">ONE WALLET. MORE POWER. <span></span></div>
+  <div class="feature-layout">
+    <div>
+      <h2>Everything you need.<br><em>Nothing you don't.</em></h2>
+      <p class="intro">A wallet designed around the way modern money actually moves.</p>
+      <div class="tabs" role="tablist" aria-label="Wallet features">
+        <button class="active" data-tab="transfer" role="tab">↗ <span>Instant transfers</span></button>
+        <button data-tab="card" role="tab">▣ <span>Virtual cards</span></button>
+        <button data-tab="track" role="tab">◌ <span>Expense tracking</span></button>
+        <button data-tab="crypto" role="tab">◇ <span>Crypto exchange</span></button>
+      </div>
+    </div>
+
+    <div class="feature-screen">
+      <div class="screen-top"><span>Overview</span><span>•••</span></div>
+
+      <div class="feature-content active" data-panel="transfer">
+        <small>AVAILABLE BALANCE</small>
+        <strong>$24,892.40</strong>
+        <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="transaction"><b>↗</b><span><strong>James Wilson</strong><small>Sent · Today</small></span><em>-$240.00</em></div>
+        <div class="transaction"><b>+</b><span><strong>Acme Inc.</strong><small>Received · Today</small></span><em class="positive">+$1,280.00</em></div>
+      </div>
+
+      <div class="feature-content" data-panel="card">
+        <div class="mock-virtual-card"><span>VOLT<span>PAY</span></span><b>•••• 6284</b></div>
+        <h3>Virtual card ready</h3>
+        <p>Create a disposable card for safer online payments.</p>
+      </div>
+
+      <div class="feature-content" data-panel="track">
+        <div class="budget"><span>Monthly spending</span><b>$2,480 <small>/ $4,000</small></b><i><u></u></i></div>
+        <h3>Stay in control</h3>
+        <p>Automatic categories and smart spending insights.</p>
+      </div>
+
+      <div class="feature-content" data-panel="crypto">
+        <div class="coin-row"><span>₿</span><b>Bitcoin</b><strong>$68,420</strong><em>+4.2%</em></div>
+        <div class="coin-row"><span>Ξ</span><b>Ethereum</b><strong>$3,842</strong><em>+2.8%</em></div>
+        <h3>Trade in one place</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section plans" id="pricing">
+  <div class="section-label">SIMPLE, TRANSPARENT PRICING <span></span></div>
+  <div class="pricing-head">
+    <div><h2>Choose your<br><em>level of freedom.</em></h2></div>
+    <p>No hidden fees. No complicated tiers.<br>Upgrade or downgrade whenever you want.</p>
+  </div>
+  <div class="price-grid">
+    <article><span class="plan-tag">STARTER</span><h3>Free</h3><p>Everything you need to get moving.</p><strong>$0 <small>/ month</small></strong><button>Get started →</button><ul><li>✓ Multi-currency wallet</li><li>✓ Local transfers</li><li>✓ Virtual card</li><li>✓ Basic analytics</li></ul></article>
+    <article class="featured"><span class="popular">MOST POPULAR</span><span class="plan-tag">PREMIUM</span><h3>Premium</h3><p>For people who move money globally.</p><strong>$9 <small>/ month</small></strong><button>Start Premium →</button><ul><li>✓ Everything in Free</li><li>✓ Global transfers</li><li>✓ Unlimited virtual cards</li><li>✓ Priority support</li><li>✓ Advanced analytics</li></ul></article>
+    <article><span class="plan-tag">METAL</span><h3>Metal</h3><p>The ultimate wallet experience.</p><strong>$29 <small>/ month</small></strong><button>Get Metal →</button><ul><li>✓ Everything in Premium</li><li>✓ Metal physical card</li><li>✓ Airport lounge access</li><li>✓ 1% cashback worldwide</li></ul></article>
+  </div>
+</section>
+
+<section class="counter-section" aria-label="Platform statistics">
+  <div><strong class="counter" data-target="1">0</strong><span>B+</span><small>Processed securely</small></div>
+  <div><strong class="counter" data-target="180">0</strong><span>+</span><small>Countries supported</small></div>
+  <div><strong class="counter" data-target="99">0</strong><span>.99%</span><small>Platform uptime</small></div>
+  <div><strong class="counter" data-target="24">0</strong><span>/7</span><small>Customer support</small></div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-main">
+    <div><a class="logo" href="#"><span class="logo-mark">V</span>volt<span>pay</span></a><p>Move money without limits.<br>Built for a borderless world.</p></div>
+    <div class="footer-links">
+      <div><b>Product</b><a href="#features">Features</a><a href="#calculator">Exchange</a><a href="#pricing">Pricing</a></div>
+      <div><b>Company</b><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a></div>
+      <div><b>Legal</b><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 VoltPay. Demo template.</span><span>🔒 Your data is encrypted and protected.</span></div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>
