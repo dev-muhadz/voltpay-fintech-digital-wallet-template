@@ -44,7 +44,11 @@ function initNavigation() {
     }
     if (event.key !== "Tab" || !nav.classList.contains("open")) return;
 
-    const focusable = [button, ...links].filter(element => !element.hasAttribute("disabled"));
+    // Keep keyboard focus inside the open navigation. The menu toggle sits
+    // outside the drawer, so it should not become part of the focus loop.
+    const focusable = links.filter(link => !link.hasAttribute("aria-disabled"));
+    if (!focusable.length) return;
+
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
 
@@ -61,7 +65,7 @@ function initNavigation() {
   links.forEach(link => link.addEventListener("click", close));
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 850) close();
+    if (window.innerWidth > 650) close();
   });
 }
 
