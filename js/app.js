@@ -61,8 +61,23 @@ function initNavigation() {
     }
   }
 
-  button.addEventListener("click", () => setOpen(!nav.classList.contains("open")));
+  button.addEventListener("click", event => {
+    event.stopPropagation();
+    setOpen(!nav.classList.contains("open"));
+  });
+
+  nav.addEventListener("click", event => {
+    event.stopPropagation();
+  });
+
   links.forEach(link => link.addEventListener("click", close));
+
+  // Close the drawer when the user taps/clicks anywhere outside it.
+  document.addEventListener("click", event => {
+    if (!nav.classList.contains("open")) return;
+    if (nav.contains(event.target) || button.contains(event.target)) return;
+    close();
+  });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth > 650) close();
@@ -178,6 +193,7 @@ function initCounters() {
   if (!counters.length || !("IntersectionObserver" in window)) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting || entry.target.dataset.done) return;
@@ -213,11 +229,12 @@ function initSignup() {
   const form = document.querySelector("#signup");
   if (!form) return;
 
-  const button = form.querySelector("button");
   const input = form.querySelector("input");
-  if (!button || !input) return;
+  const button = form.querySelector("button");
+  if (!input || !button) return;
 
   button.setAttribute("aria-live", "polite");
+
   form.addEventListener("submit", event => {
     event.preventDefault();
     if (!input.checkValidity()) {
