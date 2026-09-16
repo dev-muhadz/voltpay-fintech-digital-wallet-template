@@ -1,0 +1,254 @@
+/* VoltPay Phase 3 repair layer. Restores the intended layout while keeping Phase 2 JS/accessibility work. */
+
+/* Keep the primary header visible throughout the page. */
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+main { padding-top: 76px; }
+section[id] { scroll-margin-top: 96px; }
+
+/* Restore the HTML structure used by the original pricing cards. */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.price-grid article {
+  position: relative;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #0e151b;
+}
+.price-grid article.featured {
+  border-color: #b8ff4240;
+  box-shadow: 0 0 60px #b8ff4208;
+}
+.popular {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 4px 7px;
+  border-radius: 99px;
+  background: var(--lime);
+  color: #0a1008;
+  font-size: 7px;
+  font-weight: 700;
+}
+.plan-tag { color: #697681; font-size: 8px; letter-spacing: .15em; }
+.price-grid h3 { margin: 12px 0 6px; font-size: 26px; }
+.price-grid p { min-height: 38px; color: var(--muted); font-size: 9px; }
+.price-grid article > strong { display: block; margin: 22px 0; font: 700 30px var(--display); }
+.price-grid article > strong small { color: var(--muted); font: 400 8px var(--font); }
+.price-grid button {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: transparent;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+}
+.price-grid .featured button { border-color: var(--lime); background: var(--lime); color: #0a1008; }
+.price-grid ul {
+  display: grid;
+  gap: 10px;
+  margin: 15px 0 0;
+  padding: 15px 0 0;
+  border-top: 1px solid var(--line);
+  color: #a0abb4;
+  font-size: 9px;
+  list-style: none;
+}
+
+/* Restore the CSS-built visuals inside the feature switcher. */
+.transaction {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.transaction > b {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #b8ff4210;
+  color: var(--lime);
+}
+.transaction span { display: grid; flex: 1; font-size: 9px; }
+.transaction span small { color: #68747d; font-size: 7px; }
+.transaction em { font-style: normal; font-size: 9px; }
+.positive { color: var(--lime); }
+.mock-virtual-card {
+  max-width: 300px;
+  height: 150px;
+  margin: 30px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotate(3deg);
+  border-radius: 15px;
+  background: linear-gradient(135deg, #b8ff42, #75a928);
+  color: #081008;
+  font: 700 12px var(--display);
+  box-shadow: 0 20px 50px #b8ff4220;
+}
+.mock-virtual-card span span { color: #fff; }
+.feature-content h3 { margin: 30px 0 4px; font: 700 20px var(--display); }
+.feature-content p { color: var(--muted); font-size: 10px; }
+.budget {
+  margin-top: 30px;
+  padding: 25px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #0b1015;
+}
+.budget span { display: block; color: #77828c; font-size: 9px; }
+.budget > b { display: block; margin: 8px 0 20px; font: 700 25px var(--display); }
+.budget small { color: var(--muted); font-size: 9px; }
+.budget i { display: block; height: 9px; overflow: hidden; border-radius: 99px; background: #202a31; }
+.budget u { display: block; width: 62%; height: 100%; border-radius: 99px; background: var(--lime); text-decoration: none; }
+.coin-row {
+  display: grid;
+  grid-template-columns: 35px 1fr auto auto;
+  align-items: center;
+  gap: 9px;
+  padding: 16px 0;
+  margin-top: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.coin-row > span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff08;
+  font-size: 16px;
+}
+.coin-row b, .coin-row strong { font-size: 10px; }
+.coin-row em { color: var(--lime); font-size: 8px; font-style: normal; }
+
+/* Restore the stats card/grid using the actual HTML classes. */
+.counter-section {
+  max-width: 1100px;
+  margin: 0 auto 100px;
+  padding: 35px 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(120deg, #10171c, #0b1015);
+}
+.counter-section div { border-right: 1px solid var(--line); }
+.counter-section div:last-child { border: 0; }
+.counter-section strong { font: 700 35px var(--display); }
+.counter-section span { color: var(--lime); font: 700 20px var(--display); }
+.counter-section small { display: block; color: #66727c; font-size: 8px; }
+
+/* Restore the footer structure used by the HTML. */
+footer { padding: 50px max(30px, 5vw) 25px; border-top: 1px solid var(--line); }
+.footer-main { max-width: 1100px; margin: auto; display: grid; grid-template-columns: 1.3fr 2fr; gap: 80px; }
+.footer-main > div:first-child p { color: #68747d; font-size: 10px; }
+.footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.footer-links div { display: grid; align-content: start; gap: 8px; }
+.footer-links b { margin-bottom: 5px; font-size: 9px; }
+.footer-links a { color: #68747d; font-size: 9px; }
+.footer-links a:hover { color: #fff; }
+.footer-bottom { max-width: 1100px; margin: 45px auto 0; padding-top: 20px; display: flex; justify-content: space-between; border-top: 1px solid var(--line); color: #53606b; font-size: 8px; }
+
+@media (max-width: 850px) {
+  .price-grid { grid-template-columns: 1fr; }
+  .counter-section { grid-template-columns: 1fr 1fr; gap: 25px; }
+  .counter-section div:nth-child(2) { border: 0; }
+  .footer-main { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 650px) {
+  .site-header { height: 65px; }
+  main { padding-top: 65px; }
+  section[id] { scroll-margin-top: 80px; }
+
+  .nav {
+    position: fixed;
+    top: 65px;
+    right: 0;
+    bottom: 0;
+    z-index: 110;
+    width: min(280px, 86vw);
+    max-width: 100vw;
+    height: calc(100dvh - 65px);
+    max-height: calc(100dvh - 65px);
+    padding: 24px 20px 28px;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 3px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    visibility: hidden;
+    background: #0c1218 !important;
+    border-left: 1px solid var(--line);
+    box-shadow: -20px 0 55px #0008;
+    transform: translateX(100%);
+    transition: transform .25s ease, visibility 0s linear .25s;
+  }
+  .nav a {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    color: #e1e7eb;
+    font-size: 15px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+  .nav a:hover { background: #151e26; color: #fff; }
+  .nav-cta { margin-top: 10px; background: var(--lime) !important; color: #080b0f !important; }
+  .nav.open {
+    visibility: visible;
+    transform: translateX(0);
+    transition: transform .25s ease, visibility 0s;
+  }
+  .hero { padding: 55px 20px 70px; }
+  .hero-visual { height: 380px; }
+  .wallet-card { width: 92%; padding: 20px; }
+  .chip { margin-top: 40px; }
+  .card-number { margin-top: 28px; font-size: 13px; }
+  .balance-float { top: 35px; right: -5px; }
+  .secure-float { left: -5px; bottom: 25px; }
+  .trust { padding: 30px 20px; }
+  .trust-items { grid-template-columns: 1fr 1fr; gap: 18px; }
+  .trust-items div { padding-left: 12px; }
+  .section { padding: 75px 20px; }
+  .calc-head, .pricing-head { display: block; }
+  .rate-pill { display: inline-block; margin-top: 20px; }
+  .calc-box { grid-template-columns: 1fr; padding: 18px; }
+  .swap { justify-self: center; }
+  .calc-summary { display: grid; gap: 10px; }
+  .calc-summary .receive { margin: 0; }
+  .feature-screen { min-height: 390px; }
+  .counter-section { margin: 0 20px 70px; padding: 25px 15px; }
+  .footer-links { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { display: grid; gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav { transition: none; }
+}
