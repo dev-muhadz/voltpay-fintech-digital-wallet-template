@@ -14,38 +14,38 @@ function initNavigation() {
   if (!button || !nav) return;
 
   const links = [...nav.querySelectorAll("a")];
+  const isMobile = () => window.matchMedia("(max-width: 650px)").matches;
   let lastFocused = null;
 
-  function setOpen(open) {
+  function setOpen(open, restoreFocus = false) {
     nav.classList.toggle("open", open);
     button.setAttribute("aria-expanded", String(open));
     button.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     button.textContent = open ? "×" : "☰";
+    document.body.style.overflow = open && isMobile() ? "hidden" : "";
 
     if (open) {
       lastFocused = document.activeElement;
-      links[0]?.focus();
-      document.addEventListener("keydown", trapFocus);
-    } else {
-      document.removeEventListener("keydown", trapFocus);
-      if (lastFocused instanceof HTMLElement) lastFocused.focus();
+      requestAnimationFrame(() => links[0]?.focus({ preventScroll: true }));
+    } else if (restoreFocus && lastFocused instanceof HTMLElement) {
+      lastFocused.focus({ preventScroll: true });
     }
   }
 
-  function close() {
-    if (nav.classList.contains("open")) setOpen(false);
+  function close(restoreFocus = false) {
+    if (nav.classList.contains("open")) setOpen(false, restoreFocus);
   }
 
   function trapFocus(event) {
+    if (!nav.classList.contains("open") || !isMobile()) return;
+
     if (event.key === "Escape") {
       event.preventDefault();
-      close();
+      close(true);
       return;
     }
-    if (event.key !== "Tab" || !nav.classList.contains("open")) return;
 
-    // Keep keyboard focus inside the open navigation. The menu toggle sits
-    // outside the drawer, so it should not become part of the focus loop.
+    if (event.key !== "Tab") return;
     const focusable = links.filter(link => !link.hasAttribute("aria-disabled"));
     if (!focusable.length) return;
 
@@ -54,33 +54,36 @@ function initNavigation() {
 
     if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
-      last.focus();
+      last.focus({ preventScroll: true });
     } else if (!event.shiftKey && document.activeElement === last) {
       event.preventDefault();
-      first.focus();
+      first.focus({ preventScroll: true });
     }
   }
 
   button.addEventListener("click", event => {
     event.stopPropagation();
-    setOpen(!nav.classList.contains("open"));
+    const willOpen = !nav.classList.contains("open");
+    willOpen ? setOpen(true) : close(true);
   });
 
-  nav.addEventListener("click", event => {
-    event.stopPropagation();
-  });
+  nav.addEventListener("click", event => event.stopPropagation());
 
-  links.forEach(link => link.addEventListener("click", close));
+  links.forEach(link => link.addEventListener("click", () => close(false)));
 
-  // Close the drawer when the user taps/clicks anywhere outside it.
   document.addEventListener("click", event => {
-    if (!nav.classList.contains("open")) return;
+    if (!nav.classList.contains("open") || !isMobile()) return;
     if (nav.contains(event.target) || button.contains(event.target)) return;
-    close();
+    close(false);
   });
+
+  document.addEventListener("keydown", trapFocus);
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 650) close();
+    if (!isMobile()) {
+      close(false);
+      document.body.style.overflow = "";
+    }
   });
 }
 
@@ -183,7 +186,7 @@ function initFeatureTabs() {
       panel.hidden = !selected;
     });
 
-    if (moveFocus) buttons[index].focus();
+    if (moveFocus) buttons[index].focus({ preventScroll: true });
   }
 }
 
