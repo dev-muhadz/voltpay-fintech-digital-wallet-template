@@ -1,10 +1,11 @@
-/* VoltPay interactions: calculator, tabs, mobile navigation and metric counters. */
+/* VoltPay interactions: calculator, tabs, mobile navigation, pricing buttons and metric counters. */
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initCalculator();
   initFeatureTabs();
   initCounters();
   initSignup();
+  initPricingButtons();
 });
 
 /* Mobile off-canvas navigation with keyboard focus containment. */
@@ -247,5 +248,24 @@ function initSignup() {
 
     button.textContent = "You're on the list ✓";
     button.disabled = true;
+  });
+}
+
+/* Pricing buttons: demo-friendly action that takes visitors to the signup form. */
+function initPricingButtons() {
+  const buttons = [...document.querySelectorAll(".price-grid button[data-plan]")];
+  const form = document.querySelector("#signup");
+  const input = form?.querySelector("input");
+  if (!buttons.length || !form || !input) return;
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const plan = button.dataset.plan;
+      form.scrollIntoView({ behavior: "smooth", block: "center" });
+      input.setAttribute("aria-label", `${plan} plan email address`);
+      input.placeholder = `Email for ${plan} plan interest`;
+
+      requestAnimationFrame(() => input.focus({ preventScroll: true }));
+    });
   });
 }
