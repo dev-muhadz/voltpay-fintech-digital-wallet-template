@@ -1,0 +1,22 @@
+/* =========================================================
+   VOLTPAY ACCESSIBILITY POLISH
+   Keep keyboard focus visible without changing the visual system.
+   ========================================================= */
+
+:where(a, button, input, select):focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
+.signup input:focus-visible,
+.calc-field input:focus-visible,
+.calc-field select:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(a, button, input, select) {
+    scroll-behavior: auto;
+  }
+}
