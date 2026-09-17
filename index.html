@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="VoltPay — modern fintech and digital wallet landing page template.">
-  <title>VoltPay — Digital Wallet</title>
+  <meta name="description" content="VoltPay — modern fintech and digital wallet landing page template for businesses, startups and financial products.">
+  <meta name="theme-color" content="#080b0f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VoltPay — Digital Wallet Template">
+  <meta property="og:description" content="A modern fintech and digital wallet landing page template built with HTML, CSS and JavaScript.">
+  <meta property="og:url" content="https://dev-muhadz.github.io/voltpay-fintech-digital-wallet-template/">
+  <link rel="canonical" href="https://dev-muhadz.github.io/voltpay-fintech-digital-wallet-template/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <title>VoltPay — Digital Wallet Template</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/phase-3-fixes.css">
 </head>
 <body>
 <header class="site-header" id="site-header">
-  <a class="logo" href="#"><span class="logo-mark">V</span>volt<span>pay</span></a>
+  <a class="logo" href="#" aria-label="VoltPay home"><span class="logo-mark">V</span>volt<span>pay</span></a>
   <nav class="nav" id="nav" aria-label="Primary navigation">
     <a href="#features">Features</a>
     <a href="#calculator">Exchange</a>
@@ -35,10 +42,10 @@
       <button type="submit">Get early access <span>→</span></button>
     </form>
     <div class="download">
-      <small>Available soon on</small>
+      <small>Demo store buttons — replace with your app links</small>
       <div>
-        <button type="button"> <b>App Store</b></button>
-        <button type="button">▶ <b>Google Play</b></button>
+        <button type="button" aria-label="App Store placeholder — replace with your App Store URL"> <b>App Store</b></button>
+        <button type="button" aria-label="Google Play placeholder — replace with your Google Play URL">▶ <b>Google Play</b></button>
       </div>
     </div>
   </div>
@@ -80,13 +87,13 @@
 </section>
 
 <section class="section calculator" id="calculator">
-  <div class="section-label">LIVE CALCULATOR <span></span></div>
+  <div class="section-label">EXCHANGE CALCULATOR <span></span></div>
   <div class="calc-head">
     <div>
       <h2>Know exactly<br><em>what you'll get.</em></h2>
-      <p>See today's simulated exchange rate and estimated transfer fee before you send.</p>
+      <p>See a simulated exchange rate and estimated transfer fee before you send.</p>
     </div>
-    <div class="rate-pill"><i></i> Rates updated just now</div>
+    <div class="rate-pill"><i></i> Simulated rates · demo only</div>
   </div>
   <div class="calc-box">
     <div class="calc-field">
@@ -159,9 +166,9 @@
     <p>No hidden fees. No complicated tiers.<br>Upgrade or downgrade whenever you want.</p>
   </div>
   <div class="price-grid">
-    <article><span class="plan-tag">STARTER</span><h3>Free</h3><p>Everything you need to get moving.</p><strong>$0 <small>/ month</small></strong><button>Get started →</button><ul><li>✓ Multi-currency wallet</li><li>✓ Local transfers</li><li>✓ Virtual card</li><li>✓ Basic analytics</li></ul></article>
-    <article class="featured"><span class="popular">MOST POPULAR</span><span class="plan-tag">PREMIUM</span><h3>Premium</h3><p>For people who move money globally.</p><strong>$9 <small>/ month</small></strong><button>Start Premium →</button><ul><li>✓ Everything in Free</li><li>✓ Global transfers</li><li>✓ Unlimited virtual cards</li><li>✓ Priority support</li><li>✓ Advanced analytics</li></ul></article>
-    <article><span class="plan-tag">METAL</span><h3>Metal</h3><p>The ultimate wallet experience.</p><strong>$29 <small>/ month</small></strong><button>Get Metal →</button><ul><li>✓ Everything in Premium</li><li>✓ Metal physical card</li><li>✓ Airport lounge access</li><li>✓ 1% cashback worldwide</li></ul></article>
+    <article><span class="plan-tag">STARTER</span><h3>Free</h3><p>Everything you need to get moving.</p><strong>$0 <small>/ month</small></strong><button type="button">Get started →</button><ul><li>✓ Multi-currency wallet</li><li>✓ Local transfers</li><li>✓ Virtual card</li><li>✓ Basic analytics</li></ul></article>
+    <article class="featured"><span class="popular">MOST POPULAR</span><span class="plan-tag">PREMIUM</span><h3>Premium</h3><p>For people who move money globally.</p><strong>$9 <small>/ month</small></strong><button type="button">Start Premium →</button><ul><li>✓ Everything in Free</li><li>✓ Global transfers</li><li>✓ Unlimited virtual cards</li><li>✓ Priority support</li><li>✓ Advanced analytics</li></ul></article>
+    <article><span class="plan-tag">METAL</span><h3>Metal</h3><p>The ultimate wallet experience.</p><strong>$29 <small>/ month</small></strong><button type="button">Get Metal →</button><ul><li>✓ Everything in Premium</li><li>✓ Metal physical card</li><li>✓ Airport lounge access</li><li>✓ 1% cashback worldwide</li></ul></article>
   </div>
 </section>
 
@@ -173,13 +180,13 @@
 </section>
 </main>
 
-<footer>
+<footer id="footer">
   <div class="footer-main">
-    <div><a class="logo" href="#"><span class="logo-mark">V</span>volt<span>pay</span></a><p>Move money without limits.<br>Built for a borderless world.</p></div>
+    <div><a class="logo" href="#" aria-label="VoltPay home"><span class="logo-mark">V</span>volt<span>pay</span></a><p>Move money without limits.<br>Built for a borderless world.</p></div>
     <div class="footer-links">
       <div><b>Product</b><a href="#features">Features</a><a href="#calculator">Exchange</a><a href="#pricing">Pricing</a></div>
-      <div><b>Company</b><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a></div>
-      <div><b>Legal</b><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div>
+      <div><b>Company</b><a href="#footer">About</a><a href="#footer">Careers</a><a href="#signup">Contact</a></div>
+      <div><b>Legal</b><a href="#footer">Privacy</a><a href="#footer">Terms</a><a href="#security">Security</a></div>
     </div>
   </div>
   <div class="footer-bottom"><span>© 2026 VoltPay. Demo template.</span><span>🔒 Your data is encrypted and protected.</span></div>
