@@ -23,6 +23,8 @@ It is built with **semantic HTML5, modern CSS3 and lightweight Vanilla JavaScrip
 - SVG favicon
 - SEO-ready title, description, canonical URL and Open Graph metadata
 - `robots.txt` and `sitemap.xml`
+- Custom 404 page
+- Static About, Careers, Contact, Privacy and Terms pages
 - CSS custom properties for fast rebranding
 - Zero UI framework dependencies
 
@@ -31,6 +33,12 @@ It is built with **semantic HTML5, modern CSS3 and lightweight Vanilla JavaScrip
 ```text
 voltpay-fintech-digital-wallet-template/
 ├── index.html
+├── 404.html
+├── about.html
+├── careers.html
+├── contact.html
+├── privacy.html
+├── terms.html
 ├── favicon.svg
 ├── robots.txt
 ├── sitemap.xml
@@ -168,6 +176,7 @@ The template includes a basic SEO foundation:
 - SVG favicon
 - `robots.txt`
 - `sitemap.xml`
+- A custom `404.html` page for GitHub Pages/static hosting
 
 If you deploy the template under a different domain or path, update the canonical URL, Open Graph URL, sitemap URL and robots configuration accordingly.
 
@@ -205,6 +214,7 @@ Before shipping a real product:
 - [ ] Replace the canonical and Open Graph URLs.
 - [ ] Update `sitemap.xml` and `robots.txt`.
 - [ ] Add a real social preview image if desired.
+- [ ] Choose and publish the appropriate marketplace license before distribution.
 - [ ] Test mobile, desktop and keyboard interactions.
 - [ ] Run a final accessibility and performance check.
 
